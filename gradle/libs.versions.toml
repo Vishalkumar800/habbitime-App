@@ -60,4 +60,3 @@ android-library = {id = "com.android.library" , version.ref = "agp"}
 dagger-plugin = { id = "com.google.dagger.hilt.android", version.ref = "dagger_hilt" }
 kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
-
