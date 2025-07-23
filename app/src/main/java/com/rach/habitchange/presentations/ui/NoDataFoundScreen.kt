@@ -11,7 +11,7 @@ import androidx.compose.ui.viewinterop.AndroidView
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
-import com.rach.habitchange.utils.Secret
+import com.rach.habitchange.utils.Secrets
 
 @Composable
 fun NoDataFound(modifier: Modifier = Modifier) {
@@ -27,7 +27,7 @@ fun NoDataFound(modifier: Modifier = Modifier) {
             factory = { context ->
                 AdView(context).apply {
                     setAdSize(AdSize.BANNER)
-                    adUnitId = Secret.ADS_UNIT_ID
+                    adUnitId = Secrets.ADS_UNIT_ID
                     loadAd(AdRequest.Builder().build())
                 }
             }

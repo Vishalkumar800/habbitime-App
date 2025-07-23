@@ -1,3 +1,6 @@
+import java.io.FileInputStream
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -19,6 +22,8 @@ android {
         versionName = "1.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        //buildConfigField("String","ADMOB_APP_ID","\"${getSecretInfo("ADMOB_APP_ID")}\"")
+        manifestPlaceholders["ADMOB_APP_ID"] = getSecretInfo("ADMOB_APP_ID")
     }
 
     buildTypes {
@@ -39,6 +44,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 }
 
@@ -74,4 +80,15 @@ dependencies {
     implementation(libs.room.ktx)
     implementation(libs.androidx.navigation.compose)
 
+}
+
+fun getSecretInfo(key:String):String{
+    val properties = Properties()
+    val localPropertiesFile = rootProject.file("local.properties")
+    if (localPropertiesFile.exists()){
+        properties.load(FileInputStream(localPropertiesFile))
+        return properties[key]?.toString() ?: ""
+    }
+
+    return ""
 }
