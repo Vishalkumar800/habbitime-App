@@ -23,6 +23,7 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         //buildConfigField("String","ADMOB_APP_ID","\"${getSecretInfo("ADMOB_APP_ID")}\"")
+        buildConfigField("String","BANNER_ADS_UNIT_ID","\"${getSecretInfo("BANNER_ADS_UNIT_ID")}\"")
         manifestPlaceholders["ADMOB_APP_ID"] = getSecretInfo("ADMOB_APP_ID")
     }
 
