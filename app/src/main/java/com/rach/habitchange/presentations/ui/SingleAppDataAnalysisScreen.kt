@@ -30,10 +30,10 @@ import com.rach.habitchange.presentations.viewModel.HomeViewModel
 fun SingleAppDataAnalysisScreen(
     modifier: Modifier = Modifier,
     appName: String,
-    todayUsage:Long,
-    packageName:String,
+    todayUsage: Long,
+    packageName: String,
     viewModel: HomeViewModel = hiltViewModel(),
-    onBackClick:() -> Unit
+    onBackClick: () -> Unit
 ) {
 
 

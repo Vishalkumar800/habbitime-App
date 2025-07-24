@@ -41,7 +41,7 @@ fun SelectAppSingleDesign(
     val appIcon = remember(packageName) {
         try {
             context.packageManager.getApplicationIcon(packageName)
-        }catch (e:Exception){
+        } catch (e: Exception) {
             null
         }
     }

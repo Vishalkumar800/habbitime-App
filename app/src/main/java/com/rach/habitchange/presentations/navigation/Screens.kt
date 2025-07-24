@@ -3,6 +3,7 @@ package com.rach.habitchange.presentations.navigation
 sealed class Screens(
     val route: String
 ) {
+    object SplashScreen : Screens("SplashScreen")
     object HomeScreen : Screens("HomeScreen")
     object SelectAppScreen : Screens("SelectAppScreen")
     object SingleAppDataAnalysisScreen : Screens("SingleAppDataAnalysisScreen") {

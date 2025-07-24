@@ -80,6 +80,7 @@ dependencies {
     kapt(libs.room.complier)
     implementation(libs.room.ktx)
     implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.core.splashscreen)
 
 }
 

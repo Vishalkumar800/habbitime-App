@@ -8,7 +8,8 @@
     <string name="stats_perm_text">"This app needs Usage Access permission to track your app usage data. "Please go to Settings and enable it" "</string>
     <string name="usage_access_required">Usage Access Required</string>
     <string name="please_grant_usage_access_permission">Please grant Usage Access permission</string>
-    
+    <string name="app_logo">app logo</string>
+
     <!-- Secrets -->
 
 </resources>

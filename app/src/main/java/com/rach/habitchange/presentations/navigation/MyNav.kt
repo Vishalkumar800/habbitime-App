@@ -21,6 +21,8 @@ fun MyNav() {
         navController = navController,
         startDestination = Screens.HomeScreen.route
     ) {
+
+
         composable(route = Screens.HomeScreen.route) {
             HomeScreen(
                 modifier = Modifier
