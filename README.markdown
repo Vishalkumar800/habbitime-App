@@ -1,3 +1,8 @@
+## 📸 Screenshots
+| Home Screen | Select App Screen |
+|-------------|----------------|
+| ![Home](https://github.com/user-attachments/assets/d8b69a4a-857d-4214-be65-ab44260d2b13) | ![Select App Screen](https://github.com/user-attachments/assets/dfb1696a-895f-4c84-bd88-6d00bbf2af01) |
+
 # Habitime: Screen Time Tracker
 
 ![App Logo](https://github.com/Vishalkumar800/habbitime-App/blob/master/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp) 
@@ -45,11 +50,6 @@ Habitime can track usage for popular apps, including but not limited to:
 3. Select the apps you want to track (e.g., Instagram, WhatsApp).
 4. View daily usage statistics on the app dashboard.
 5. Adjust your habits based on insights provided by Habitime.
-
-## 📸 Screenshots
-| Home Screen | Select App Screen |
-|-------------|----------------|
-| ![Home](https://github.com/user-attachments/assets/d8b69a4a-857d-4214-be65-ab44260d2b13) | ![Select App Screen](https://github.com/user-attachments/assets/dfb1696a-895f-4c84-bd88-6d00bbf2af01) |
 
 ## 🛠️ Tech Stack
 - **Language**: Kotlin
