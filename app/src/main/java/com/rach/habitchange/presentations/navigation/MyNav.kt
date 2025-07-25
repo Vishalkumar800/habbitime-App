@@ -9,7 +9,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.rach.habitchange.R
-import com.rach.habitchange.presentations.ui.SingleAppDataAnalysisScreen
+import com.rach.habitchange.presentations.ui.appUsageDetailScreen.AppUsageDetailScreen
 import com.rach.habitchange.presentations.ui.homescreen.HomeScreen
 import com.rach.habitchange.presentations.ui.selectApp.SelectAppScreen
 
@@ -31,7 +31,7 @@ fun MyNav() {
                 onFloatingButtonClicked = { navController.navigate(Screens.SelectAppScreen.route) },
                 onAppClick = { packageName, appName, todayUsage ->
                     navController.navigate(
-                        Screens.SingleAppDataAnalysisScreen.createRoute(
+                        Screens.AppUsageDetailScreen.createRoute(
                             packageName = packageName,
                             appName = appName,
                             todayUsage = todayUsage
@@ -50,11 +50,11 @@ fun MyNav() {
             )
         }
 
-        composable(route = Screens.SingleAppDataAnalysisScreen.pattern) { backStackEntry ->
+        composable(route = Screens.AppUsageDetailScreen.PATTERN) { backStackEntry ->
             val packageName = backStackEntry.arguments?.getString("packageName") ?: ""
             val appName = backStackEntry.arguments?.getString("appName") ?: ""
             val todayUsage = backStackEntry.arguments?.getString("todayUsage")?.toLongOrNull() ?: 0L
-            SingleAppDataAnalysisScreen(
+            AppUsageDetailScreen(
                 appName = appName,
                 todayUsage = todayUsage,
                 packageName = packageName,

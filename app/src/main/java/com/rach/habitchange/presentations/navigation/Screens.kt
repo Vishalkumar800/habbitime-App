@@ -6,11 +6,11 @@ sealed class Screens(
     object SplashScreen : Screens("SplashScreen")
     object HomeScreen : Screens("HomeScreen")
     object SelectAppScreen : Screens("SelectAppScreen")
-    object SingleAppDataAnalysisScreen : Screens("SingleAppDataAnalysisScreen") {
-        val pattern = "SingleAppDataAnalysisScreen/{packageName}/{appName}/{todayUsage}"
+    object AppUsageDetailScreen : Screens("AppUsageDetailScreen") {
+        const val PATTERN = "AppUsageDetailScreen/{packageName}/{appName}/{todayUsage}"
 
         fun createRoute(packageName: String, todayUsage: Long, appName: String): String {
-            return "SingleAppDataAnalysisScreen/$packageName/$appName/$todayUsage"
+            return "AppUsageDetailScreen/$packageName/$appName/$todayUsage"
         }
     }
 

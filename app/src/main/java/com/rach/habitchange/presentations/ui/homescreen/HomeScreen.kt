@@ -123,7 +123,9 @@ fun HomeScreen(
 
                 uiState.appsData.isEmpty() -> {
                     NoDataFound(
-                        modifier = Modifier.fillMaxSize()
+                        modifier = Modifier.fillMaxSize(),
+                        text = "No App Found ",
+                        text2 = "Please Add Apps"
                     )
                 }
 

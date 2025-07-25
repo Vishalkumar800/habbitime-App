@@ -1,9 +1,13 @@
 package com.rach.habitchange.theme
 
 import androidx.compose.material3.Typography
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.googlefonts.Font
 import androidx.compose.ui.text.googlefonts.GoogleFont
+import androidx.compose.ui.unit.sp
 import com.rach.habitchange.R
 
 val provider = GoogleFont.Provider(
@@ -46,6 +50,45 @@ val AppTypography = Typography(
     labelMedium = baseline.labelMedium.copy(fontFamily = bodyFontFamily),
     labelSmall = baseline.labelSmall.copy(fontFamily = bodyFontFamily),
 )
+
+/**
+ * Extra Font
+ */
+
+val poppinsFontFamily = FontFamily(
+    Font(R.font.poppins_regular, FontWeight.Normal),
+    Font(R.font.poppins_medium, FontWeight.Medium),
+    Font(R.font.poppins_semibold, FontWeight.SemiBold),
+    Font(R.font.poppins_bold, FontWeight.Bold)
+)
+
+val poppinsRegularFont = TextStyle(
+    fontFamily = poppinsFontFamily,
+    fontWeight = FontWeight.Normal,
+    fontSize = 18.sp
+)
+
+val poppinsMediumFont = TextStyle(
+    fontFamily = poppinsFontFamily,
+    fontWeight = FontWeight.Medium,
+    fontSize = 18.sp
+)
+
+
+val poppinsBoldFont = TextStyle(
+    fontFamily = poppinsFontFamily,
+    fontWeight = FontWeight.Bold,
+    fontSize = 18.sp
+)
+
+val poppinsSemiBoldFont = TextStyle(
+    fontFamily = poppinsFontFamily,
+    fontWeight = FontWeight.SemiBold,
+    fontSize = 18.sp
+)
+
+
+
 
 
 

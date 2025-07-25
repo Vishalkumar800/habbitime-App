@@ -2,6 +2,12 @@ package com.rach.habitchange.theme
 
 import androidx.compose.ui.graphics.Color
 
+val Orange = Color(0xFFFF6F00)
+val DarkerOrange = Color(0xFFFF8C00)
+val PinkishRed = Color(0xFFFF2D55)
+val Purple = Color(0xFF8E2DE2)
+val AquaBlue = Color(0xFF00C9FF)
+
 val Purple80 = Color(0xFFD0BCFF)
 val PurpleGrey80 = Color(0xFFCCC2DC)
 val Pink80 = Color(0xFFEFB8C8)
