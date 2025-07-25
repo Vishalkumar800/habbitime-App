@@ -51,6 +51,13 @@ Habitime can track usage for popular apps, including but not limited to:
 |-------------|----------------|
 | ![Home](https://github.com/user-attachments/assets/d8b69a4a-857d-4214-be65-ab44260d2b13) | ![Select App Screen](https://github.com/user-attachments/assets/dfb1696a-895f-4c84-bd88-6d00bbf2af01) |
 
+## 🛠️ Tech Stack
+- **Language**: Kotlin
+- **UI Framework**: Jetpack Compose
+- **Architecture**: MVVM (Model-View-ViewModel) + MultiModular
+- **Dependencies Injection**: Dagger Hilt
+
+
 ## Contributing
 
 Contributions are welcome! To contribute:
