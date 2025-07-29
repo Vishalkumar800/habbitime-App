@@ -12,6 +12,8 @@
     <string name="today_usage_icon">Today Usage Icon</string>
     <string name="today_usage">Today Usage</string>
 
-    <!-- Secrets -->
+    <string name="hour_indicator">h</string>
+    <string name="minute_indicator">m</string>
+    <string name="duration_picker_confirm_button">Confirm</string>
 
 </resources>

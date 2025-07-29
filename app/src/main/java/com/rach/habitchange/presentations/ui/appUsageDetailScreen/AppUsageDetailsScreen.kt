@@ -12,13 +12,17 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -31,8 +35,16 @@ import com.rach.habitchange.presentations.ui.appUsageDetailScreen.components.Cir
 import com.rach.habitchange.presentations.ui.appUsageDetailScreen.components.FiveDaysDataUiSection
 import com.rach.habitchange.presentations.ui.appUsageDetailScreen.components.TodayUsageTextAppDetailsScreen
 import com.rach.habitchange.presentations.uiComponents.CustomTopAppBar
+import com.rach.habitchange.presentations.uiComponents.timeSelect.BaseDurationPicker
+import com.rach.habitchange.presentations.uiComponents.timeSelect.TimeUtil
 import com.rach.habitchange.presentations.viewModel.HomeViewModel
 import com.rach.habitchange.theme.HabitChangeTheme
+
+
+private const val MinimumTime = (1 * 60) // 1min
+private const val MaximumTime = (22 * 60 * 60) + (45 * 60) // 22 hour 45 min max
+private const val currentTime = "2:30:00"
+
 
 @Composable
 fun AppUsageDetailScreen(
@@ -45,6 +57,8 @@ fun AppUsageDetailScreen(
 
     val scrollState = rememberScrollState()
     val context = LocalContext.current
+
+    var showTimerPicker by remember { mutableStateOf(false) }
 
     LaunchedEffect(Unit) {
         homeViewModel.fiveDayDataUsage(packageName)
@@ -105,17 +119,62 @@ fun AppUsageDetailScreen(
                 //Today App Usage Composable
                 TodayUsageTextAppDetailsScreen(
                     modifier = Modifier.fillMaxWidth(),
-                    todayUsage = todayUsage
+                    todayUsage = todayUsage,
+                    onSetLimitClick = {
+                        showTimerPicker = true
+                    }
                 )
+
+                //Five Days Section Or In Future You need to implement Graph
                 Spacer(modifier = Modifier.height(dimensionResource(R.dimen.dimen_15dp)))
                 FiveDaysDataUiSection(
                     modifier = Modifier,
                     fiveDaysAppUsageData = uiState.appsData
                 )
             }
+            TimePickerDialog(
+                showBottomSheet = showTimerPicker,
+                onDismissRequest = { showTimerPicker = false },
+                onConfirmRequest = { }
+            )
         }
     }
 
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun TimePickerDialog(
+    modifier: Modifier = Modifier,
+    showBottomSheet: Boolean,
+    onDismissRequest: () -> Unit,
+    onConfirmRequest: () -> Unit
+) {
+
+    if (showBottomSheet) {
+        ModalBottomSheet(
+            modifier = modifier,
+            onDismissRequest = onDismissRequest
+        ) {
+
+            BaseDurationPicker(
+                modifier = Modifier.fillMaxWidth(),
+                current = TimeUtil.convertTimeToDuration(currentTime),
+                minimumSeconds = MinimumTime,
+                maximumSeconds = MaximumTime,
+                onConfirmClick = { timeInStrings ->
+                    val timeInSeconds = convertTimeStringToSeconds(timeInStrings)
+                    onConfirmRequest()
+                }
+            )
+        }
+    }
+}
+
+private fun convertTimeStringToSeconds(timeString: String): Long {
+    val parts = timeString.split(":").map { it.toIntOrNull() ?: 0 }
+    val (hours, minutes, seconds) = parts + List(3 - parts.size) { 0 }
+    return (hours * 3600 + minutes * 60 + seconds).toLong()
 }
 
 
