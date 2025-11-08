@@ -176,6 +176,7 @@ private fun FloatingActionButtonUi(
     onFloatingButtonClicked: () -> Unit,
     showPermissionDialog: Boolean
 ) {
+
     IconButton(
         onClick = {
             onFloatingButtonClicked()
@@ -193,5 +194,6 @@ private fun FloatingActionButtonUi(
             tint = Color.White
         )
     }
+
 }
 
