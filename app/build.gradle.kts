@@ -12,7 +12,7 @@ plugins {
 
 android {
     namespace = "com.rach.habitchange"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.rach.habitchange"
